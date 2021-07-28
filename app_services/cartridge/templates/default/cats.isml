@@ -1,0 +1,3 @@
+<isloop var="image" items="${pdict.images}">
+    <img src="${image.url}"/>
+</isloop>

@@ -1,0 +1,26 @@
+<form action="${pdict.submitUrl}" method="post">
+    <isif condition="${pdict.success}">
+        <p>Success</p>
+    </isif>
+
+    <input
+        id="${pdict.sampleForm.contactDetails.firstName.htmlName}"
+        name="${pdict.sampleForm.contactDetails.firstName.htmlName}"
+        type="text"
+        value="${pdict.sampleForm.contactDetails.firstName.value || ''}"
+        <isif condition="${pdict.sampleForm.contactDetails.firstName.mandatory}">required</isif>
+    />
+
+    <select name="${pdict.sampleForm.personalDetails.birthYear.htmlName}">
+        <isloop var="yearOption" items="${pdict.sampleForm.personalDetails.birthYear.options}">
+            <option
+                value="${yearOption.value.toFixed()}"
+                <isif condition="${yearOption.value === pdict.sampleForm.personalDetails.birthYear.value}">selected</isif>
+            >
+                ${yearOption.label}
+            </option>
+        </isloop>
+    </select>
+
+    <button type="submit" name="${pdict.sampleForm.submit.htmlName}">${Resource.msg('global.submit', 'locale', null)}</button>
+</form>

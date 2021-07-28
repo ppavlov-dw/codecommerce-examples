@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+    <group formid="contactDetails" binding="details">
+        <field
+            formid="firstName"
+            label="label.firstName"
+            type="string"
+            binding="firstName"
+            mandatory="true"
+            min-length="5"
+            max-length="50"
+            missing-error="error.firstName.missing"
+            range-error="error.firstName.range"
+            value-error="error.firstName.value"
+            validation="${require('*/cartridge/scripts/forms/validation/sample').validateName(formfield);}"
+        />
+    </group>
+    <group formid="personalDetails">
+        <field formid="birthYear" label="label.birthYear" type="number">
+            <options optionid-binding="year" value-binding="year" label-binding="label"/>
+        </field>
+    </group>
+    <list formid="products" binding="products">
+        <field formid="rating" type="number" binding="name" />
+    </list>
+
+    <action formid="submit" form-valid="true"/>
+</form>
